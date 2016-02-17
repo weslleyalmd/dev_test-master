@@ -1,0 +1,18 @@
+<div class='container'>
+	<div class="side-nav-container affix-top">
+		<% unless @todos.blank? %>
+			<ul class='nav nav-tabs nav-stacked'>
+				<% @todos.each do |todo| %>
+					<li>
+						<%= render partial: "todos", locals: {todo: todo} %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	$('.collapse.in').collapse('hide');
+});
+</script>

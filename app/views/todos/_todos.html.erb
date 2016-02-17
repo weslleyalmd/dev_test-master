@@ -1,0 +1,16 @@
+<div class="row" style="border: solid 1px white;">
+	<div class="span3">
+		<a href="#<%=todo.id%>"> <%= todo.name %> </a>
+	</div>
+	<div class="span3">
+		Created by: <b><%= todo.user.email %></b>
+	</div>
+	<div class="span1">
+		<label class="checkbox">
+			<%= check_box_tag("finished", todo.finished?, todo.finished?, onclick: "todoDone(#{todo.id}, #{todo.finished?})")%> Finished
+		</label>
+	</div>
+	<%if todo.user.id == current_user.id%>
+		<%= render partial: "options", locals: {todo1: todo}%>
+	<%end%>
+</div>

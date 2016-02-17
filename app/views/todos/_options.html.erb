@@ -1,0 +1,6 @@
+<div class="span2">
+	<%=button_to 'Edit', edit_todo_path(todo1), :method => :get, :class=>"btn-mini btn-info"%>
+</div>
+<div class="spam2">
+	<button class="btn-mini btn-danger" onClick="destroyTodo(<%=todo1.id%>, this)">Delete</button>
+</div>
