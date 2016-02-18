@@ -10,7 +10,8 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     if @todo.save
-      render action: "index"
+      flash[:notice] = "Task #{@todo.name} successfuly created!"
+      redirect_to todos_url
     else
       render action: "new"
     end
@@ -25,7 +26,8 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.update_attributes(todo_params)
-        format.html {render action: "index"}
+        flash[:notice] = "Task #{@todo.name} successfuly updated!"
+        format.html {redirect_to todos_url}
         format.json {render :json => @todo, status: :ok}
       else
         format.html {render action: "edit"}
@@ -39,6 +41,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
+      flash[:notice] = "Task deleted!"
       format.html {render action: "index"}
       format.json {render :json => @todo, status: :ok}
     end

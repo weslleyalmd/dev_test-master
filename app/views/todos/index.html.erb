@@ -1,7 +1,10 @@
 <div class='container'>
 	<div class="side-nav-container affix-top">
-		<% unless @todos.blank? %>
-			<ul class='nav nav-tabs nav-stacked'>
+		<p><a href="todos/new" class="btn btn-primary btn-small">New Task</a></p>
+		<% if @todos.blank? %>
+			<p>You have nothing to do.</p>
+		<% else %>
+			<ul id="sortable" class='nav nav-tabs nav-stacked'>
 				<% @todos.each do |todo| %>
 					<li>
 						<%= render partial: "todos", locals: {todo: todo} %>
@@ -12,7 +15,8 @@
 	</div>
 </div>
 <script>
-$(document).ready(function() {
-	$('.collapse.in').collapse('hide');
+$(function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
 });
 </script>

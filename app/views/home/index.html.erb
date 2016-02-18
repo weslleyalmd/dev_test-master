@@ -1,23 +1,28 @@
 <% if user_signed_in? %>
 	<div class="container">
 		<div class="hero-unit span10 pagination-centered">
-			<h1>Hello, <%= current_user.email %> </h1>
+			<h1>Hello, <%= current_user.username %> </h1>
 			<p>This is your personal To-Do List.</p>
 			<p><a href="todos/new" class="btn btn-primary btn-large">New Task</a></p>
 		</div>
 	</div>
 	<br>
-		<% if @todo_list.blank? %>
-			<p>You have nothing to do.</p>
-		<% else %>
-			<ul class='nav nav-tabs nav-stacked'>
-				<% @todo_list.each do |todo| %>
-					<li>
-						<%= render partial: "todos", locals: {todo: todo} %>
-					</li>
-				<% end %>
-			</ul>
-		<% end %>
+	<div class="container">
+		<div class="hero-unit span10 pagination-centered">
+			<% if @todo_list.blank? %>
+				<p>You have nothing to do.</p>
+			<% else %>
+
+				<ul id="sortable" class='nav nav-tabs nav-stacked'>
+					<% @todo_list.each do |todo| %>
+						<li>
+							<%= render partial: "todos", locals: {todo: todo} %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+			</div>
+		</div>
 <%else%>
 	<div class="hero-unit span12 pagination-centered">
 		<h1>Hello! </h1>
@@ -26,7 +31,8 @@
 	</div>
 <%end%>
 <script>
-$(document).ready(function() {
-	$('.collapse.in').collapse('hide');
+$(function() {
+  $( "#sortable" ).sortable();
+  $( "#sortable" ).disableSelection();
 });
 </script>
