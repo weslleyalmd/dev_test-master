@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+valid:
   user_id: 1
-  description: MyString
-  due_date: 2016-02-12
+  name: MyString1
 
-two:
+invalid:
   user_id: 1
-  description: MyString
-  due_date: 2016-02-12
+  name: ''
+
