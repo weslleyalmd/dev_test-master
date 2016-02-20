@@ -3,8 +3,10 @@
 valid:
   user_id: 1
   name: MyString1
+  priority: highter
 
 invalid:
   user_id: 1
   name: ''
+  priority: lower
 

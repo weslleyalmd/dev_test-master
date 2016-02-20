@@ -1,3 +1,11 @@
+#####################################################################################
+
+Executar o comando "rake db:seed" para que seja criado o usuário admin
+
+Email admin: admin@admin.com.br
+Senha admin: admin123
+
+
 == Teste para desenvolvedor TruckPad - TODO List
 
 Este teste deve ser realizado em 7 dias corridos e publicado num repositório público no Github.

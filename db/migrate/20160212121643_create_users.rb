@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :username
+      t.integer :admin
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

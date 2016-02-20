@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160212121749) do
 
   create_table "todos", force: true do |t|
     t.string   "name"
-    t.date     "due_date"
+    t.integer  "priority"
     t.boolean  "finished"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160212121749) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
+    t.integer  "admin"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

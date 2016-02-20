@@ -3,6 +3,8 @@ class Todo < ActiveRecord::Base
   before_save :default_values
   validates :name, :presence => {message: "Task name can't be blank"}
 
+  enum priority: [ :higher, :medium, :lower ]
+
   private
   def default_values
     self.finished ||= false
